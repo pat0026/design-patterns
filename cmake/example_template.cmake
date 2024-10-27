@@ -1,0 +1,5 @@
+macro(example_template)
+    file(GLOB SUB_SOURCES "*.cc")
+    set(SUB_SOURCES ${SUB_SOURCES} PARENT_SCOPE)
+    set(SUB_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/include PARENT_SCOPE)
+endmacro()
