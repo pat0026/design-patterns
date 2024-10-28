@@ -1,34 +1,18 @@
 #include <iostream>
-#include "Editor.h"
-#include "History.h"
+#include "Document.h"
+#include "DocumentState.h"
 
-using namespace DesignPatterns::Behavioral::Memento;
+using namespace DesignPatterns::Behavioral::StatePattern;
 
 int main(int, char**){
-    Editor editor;
-    History history(editor);
+    Document doc;
+    doc.current_user_role = ADMIN;
+    doc.state = DRAFT;
 
-    editor.title = "Title1";
-    editor.content = "Content1";
+    doc.publish();
 
-    history.back_up();
+    doc.current_user_role = READER;
+    doc.publish();
+    doc.publish();
 
-    editor.title = "Title2";
-    editor.content = "Content2";
-
-    history.back_up();
-
-    editor.title = "Title3";
-
-    history.back_up();
-
-    editor.content = "Content4";
-
-    history.back_up();
-
-    history.show_history();
-
-    history.undo();
-
-    history.show_history();
 }

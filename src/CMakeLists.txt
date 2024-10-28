@@ -1,13 +1,17 @@
 add_executable(DesignPatterns main.cpp)
 
+if(NOT DEFINED DP_TARGET)
+    set(DP_TARGET Memento)
+endif()
+
 if(DEFINED GOOD)
-    add_subdirectory("DesignPatterns/Behavioral/Memento/Good")
+    add_subdirectory("DesignPatterns/Behavioral/${DP_TARGET}/Good")
 else()
-    add_subdirectory("DesignPatterns/Behavioral/Memento/Bad")
+    add_subdirectory("DesignPatterns/Behavioral/${DP_TARGET}/Bad")
 endif()
 
 
 
-target_link_libraries(DesignPatterns PRIVATE Memento)
+target_link_libraries(DesignPatterns PRIVATE ${DP_TARGET})
 
 
