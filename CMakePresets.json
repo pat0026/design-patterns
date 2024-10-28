@@ -15,6 +15,28 @@
                 "CMAKE_CXX_COMPILER": "cl.exe",
                 "COMMENT_CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
             }
+        },
+        {
+            "name": "visual_studio-Good",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "visual_studio"
+            ],
+            "cacheVariables": {
+                "GOOD": ""
+            }
+        },
+        {
+            "name": "visual_studio-Bad",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "visual_studio"
+            ],
+            "cacheVariables": {
+                "BAD": ""
+            }
         }
     ],
     "buildPresets": [
@@ -29,6 +51,24 @@
             "displayName": "Visual Studio Community 2022 Release - amd64 - Release",
             "configurePreset": "visual_studio",
             "configuration": "Release"
+        },
+        {
+            "name": "visual_studio-debug-good",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "visual_studio-debug"
+            ],
+            "configurePreset": "visual_studio-Good"
+        },
+        {
+            "name": "visual_studio-debug-Bad",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "visual_studio-debug"
+            ],
+            "configurePreset": "visual_studio-Bad"
         }
     ]
 }

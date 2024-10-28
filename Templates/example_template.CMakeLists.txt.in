@@ -1,2 +1,2 @@
-include(example)
-example()
+include(design_pattern)
+design_pattern(TARGET @TARGET@)
