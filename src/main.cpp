@@ -1,17 +1,17 @@
 #include <iostream>
+#include <vector>
 #include <memory>
 
-#include "VideoStorage.h"
-#include "OverlayBlur.h"
-#include "CompressorMP4.h"
+#include "ShoppingList.h"
 
-using namespace DesignPatterns::Behavioral::Strategy;
+using namespace DesignPatterns::Behavioral::Iterator;
 
 int main(int, char**){
-    std::unique_ptr<OverlayBlur> overlay =  std::make_unique<OverlayBlur>();
-    std::unique_ptr<CompressorMP4> compressor = std::make_unique<CompressorMP4>();
-    VideoStorage vid(std::move(compressor), std::move(overlay));
-
-    vid.store("LOST");
-
+    ShoppingList cart;
+    cart.push("milk");
+    cart.push("butter");
+    std::cout << cart.pop() << std::endl;
+    std::vector<std::string> list = cart.get_cart();
+    for (const auto &var : list)
+        std::cout << var << std::endl;
 }
