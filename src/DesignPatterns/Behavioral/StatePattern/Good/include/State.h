@@ -6,5 +6,6 @@ namespace DesignPatterns::Behavioral::StatePattern
     {
     public:
         virtual void publish() = 0;
+        virtual ~State() = default;
     };
 }

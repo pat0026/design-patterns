@@ -6,5 +6,6 @@ namespace DesignPatterns::Behavioral::Strategy
     {
     public:
         virtual void compress() = 0;
+        virtual ~ICompressor() = default;
     };
 }

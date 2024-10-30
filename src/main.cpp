@@ -10,8 +10,11 @@ int main(int, char**){
     ShoppingList cart;
     cart.push("milk");
     cart.push("butter");
+    cart.push("choco");
+    cart.push("peanut");
+    cart.push("juice");
     std::cout << cart.pop() << std::endl;
-    std::vector<std::string> list = cart.get_cart();
-    for (const auto &var : list)
-        std::cout << var << std::endl;
+    std::unique_ptr<IIterator<std::string>> list = cart.create_iterator();
+    for (;list->has_next();list->next())
+        std::cout << list->current() << std::endl;
 }

@@ -1,10 +1,11 @@
 #pragma once
 
-namespace DesignPatterns::Behavioral::Strategy 
+namespace DesignPatterns::Behavioral::Strategy
 {
-    class IOverlay 
+    class IOverlay
     {
     public:
         virtual void filter() = 0;
+        virtual ~IOverlay() = default;
     };
 }
