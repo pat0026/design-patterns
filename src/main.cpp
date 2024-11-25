@@ -1,11 +1,12 @@
 #include <iostream>
 #include <memory>
-#include "PostsDialogBox.h"
+#include "WebServer.h"
 
-using namespace DesignPatterns::Behavioral::Mediator;
+using namespace DesignPatterns::Behavioral::ChainOfResponsibility;
 
 int main(int, char **)
 {
-    std::unique_ptr<PostsDialogBox> posts = std::make_unique<PostsDialogBox>();
-    posts->simulate_user_interaction();
+    std::shared_ptr<HttpRequest> request = std::make_shared<HttpRequest>("pat", "123");
+    std::unique_ptr<WebServer> server = std::make_unique<WebServer>();
+    server->handle(request);
 }
