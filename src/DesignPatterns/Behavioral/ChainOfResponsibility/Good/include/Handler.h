@@ -14,5 +14,6 @@ namespace DesignPatterns::Behavioral::ChainOfResponsibility
     public:
         void handle(const std::shared_ptr<HttpRequest> &request);
         std::shared_ptr<Handler> set_next(std::shared_ptr<Handler> next);
+        virtual ~Handler() = default;
     };
 }
